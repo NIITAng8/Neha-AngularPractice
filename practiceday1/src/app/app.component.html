@@ -1,17 +1,16 @@
-<h1 class="headertag">{{nameofproject}}
-
-<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+<h1 class="title"> {{title}}
+<button mat-icon-button [matMenuTriggerFor]="menu" >
   <mat-icon>more_vert</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item>
     <mat-icon>create</mat-icon>
     <span>Create Project</span>
-  </button> 
-  <button mat-menu-item>
+  </button>
+  <button mat-menu-item >
     <mat-icon>note_add</mat-icon>
     <span>Create Task</span>
-  </button>
+  </button> 
 </mat-menu>
 </h1>
-<app-createproject></app-createproject>
+<app-projectcreation></app-projectcreation>

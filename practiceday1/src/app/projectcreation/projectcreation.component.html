@@ -1,0 +1,14 @@
+<button type="button" mat-raised-button class="addmemberbtn" (click)="openmemberdialog()" color="primary">Add Member</button>
+<h3>Memeber List</h3>
+
+<mat-card *ngFor="let employee of employees">
+    <mat-card-header>
+        <mat-card-title>{{employee.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{employee.eid}}</p>
+        <p [hidden]="employee.hide">{{employee.rolename}}</p>
+        <button type="button" mat-raised-button (click)="employee.hide=!employee.hide" color="primary">Toggle Role</button>
+
+    </mat-card-content>
+</mat-card>

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  nameofproject = 'Project Task Management Application';
+  title = 'Project Task Management Application';
 }
