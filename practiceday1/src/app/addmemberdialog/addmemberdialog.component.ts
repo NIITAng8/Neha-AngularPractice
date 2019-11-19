@@ -8,16 +8,15 @@ import { CreateprojectComponent } from '../createproject/createproject.component
   styleUrls: ['./addmemberdialog.component.css']
 })
 export class AddmemberdialogComponent implements OnInit {
-  roles=["Developer","Manager"];
+  roles=["Developer","Manager" ];
   selectedoption:string="Developer"
+  eid:string="E123";
   constructor(public dialogRef: MatDialogRef<CreateprojectComponent>) { }
   CloseDialog() {
     this.dialogRef.close();
   }
   addmember(name,eid){
-    alert("member added"+this.selectedoption) 
- 
-    this.dialogRef.close();
+    this.dialogRef.close({neha:name,eid:eid,role:this.selectedoption});
   }
   ngOnInit() {
   }

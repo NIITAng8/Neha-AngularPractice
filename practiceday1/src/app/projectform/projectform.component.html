@@ -1,0 +1,39 @@
+<div class="projectform">
+
+    <div class="example-container">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Create Project Form</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field>
+                        <input formControlName="projectname" matInput placeholder="Enter project name" required>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="startdate" matInput [matDatepicker]="picker" placeholder="Choose a Start Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="enddate" matInput [matDatepicker]="endpicker" placeholder="Choose a End Date">
+                        <mat-datepicker-toggle matSuffix [for]="endpicker"></mat-datepicker-toggle>
+                        <mat-datepicker #endpicker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="effortcost" matInput placeholder="Enter Effort Cost">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input formControlName="efforthours" matInput placeholder="Enter Effort Hours">
+                    </mat-form-field>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" [disabled]="!projectForm.valid">Submit</button>
+                        <button mat-raised-button color="warn">Cancel</button>
+                    </mat-card-actions>
+                </form>
+            </mat-card-content>
+
+
+        </mat-card>
+    </div>
+</div>

@@ -1,23 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatInputModule} from '@angular/material/input';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddmemberComponent } from './addmember/addmember.component';
-import { ProjectcreationComponent } from './projectcreation/projectcreation.component';
+
+
+// All Material Imports
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { CreateprojectComponent } from './createproject/createproject.component';
+import { AddmemberdialogComponent } from './addmemberdialog/addmemberdialog.component';
+import { ProjectformComponent } from './projectform/projectform.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AddmemberComponent,
-    ProjectcreationComponent
+    CreateprojectComponent,
+    AddmemberdialogComponent,
+    ProjectformComponent
   ],
   imports: [
     BrowserModule,
@@ -26,13 +35,17 @@ import {MatCardModule} from '@angular/material/card';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
     MatDialogModule,
-    MatInputModule,
     MatFormFieldModule,
+    MatInputModule,
     MatSelectModule,
-    MatCardModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  entryComponents: [AddmemberComponent],
+  entryComponents:[AddmemberdialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
