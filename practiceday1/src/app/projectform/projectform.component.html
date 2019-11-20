@@ -8,8 +8,24 @@
             <mat-card-content>
                 <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
                     <mat-form-field>
-                        <input formControlName="projectname" matInput placeholder="Enter project name" required>
+                        <input formControlName="projectname" matInput placeholder="Enter project name">
                     </mat-form-field>
+                    <pre> Invalid : {{projectForm.controls['projectname'].invalid}}</pre>
+                    <pre> Touched : {{projectForm.controls['projectname'].touched}}</pre>
+                    <pre> Untouched : {{projectForm.controls['projectname'].untouched}}</pre>
+                    <pre> Dirty : {{projectForm.controls['projectname'].dirty}}</pre>
+                    <pre> Pristine : {{projectForm.controls['projectname'].pristine}}</pre>
+
+                    <div *ngIf="projectForm.controls['projectname'].errors&& (projectForm.controls['projectname'].touched || projectForm.controls['projectname'].dirty)">
+                        <mat-error *ngIf="
+                    projectForm.controls['projectname'].hasError('required')">
+                            Name is required
+                        </mat-error>
+                        <mat-error *ngIf=" 
+                      projectForm.controls['projectname'].hasError('minlength')">
+                            Name is atleast 5
+                        </mat-error>
+                    </div>
                     <mat-form-field>
                         <input formControlName="startdate" matInput [matDatepicker]="picker" placeholder="Choose a Start Date">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { employeemodel } from './createproject.model.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddmemberdialogComponent } from '../addmemberdialog/addmemberdialog.component';
+import { ProjectmanagementService } from '../projectmanagement.service';
+import { formmodel } from '../projectform/formModel.model';
 @Component({
   selector: 'app-createproject',
   templateUrl: './createproject.component.html',
@@ -12,7 +14,8 @@ import { AddmemberdialogComponent } from '../addmemberdialog/addmemberdialog.com
 })
 export class CreateprojectComponent implements OnInit {
   employees: employeemodel[];
-  constructor(public dialog: MatDialog) {
+  formdata:formmodel;
+  constructor(public dialog: MatDialog,private pmservice:ProjectmanagementService) {
     this.employees = [new employeemodel("Neha", "E31982", "Developer", true),
     new employeemodel("Bharani", "E17582", "Manager", false)]
   }
@@ -30,6 +33,9 @@ export class CreateprojectComponent implements OnInit {
     })
   }
   ngOnInit() {
+    this.pmservice.getprojectdetails().then(result=>
+      this.formdata=result
+    )
   }
 
 }

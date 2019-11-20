@@ -18,6 +18,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { CreateprojectComponent } from './createproject/createproject.component';
 import { AddmemberdialogComponent } from './addmemberdialog/addmemberdialog.component';
 import { ProjectformComponent } from './projectform/projectform.component';
@@ -43,7 +44,8 @@ import { ProjectformComponent } from './projectform/projectform.component';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   entryComponents:[AddmemberdialogComponent],
   providers: [],
