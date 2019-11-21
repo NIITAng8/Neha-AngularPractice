@@ -5,7 +5,9 @@ import { CreateprojectComponent } from './createproject/createproject.component'
 
 
 const routes: Routes = [
-  {path:'',component:CreateprojectComponent},
+  {path:'',redirectTo:'createproject',pathMatch:'full'},
+  {path:'createproject',component:CreateprojectComponent},
+  {path:'projectform/:id',component:ProjectformComponent}, 
   {path:'projectform',component:ProjectformComponent}, 
   {path:'**',component:CreateprojectComponent}
 ];

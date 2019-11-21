@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
 import { formmodel } from './projectform/formModel.model';
+import { Observable } from '../../node_modules/rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,9 +22,18 @@ export class ProjectmanagementService {
   }
 
   getprojectdetails():Promise<any>{
-    return this.httpclient.get(environment.apiURL+"projectinfo").toPromise()
+    return this.httpclient.get(environment.apiURL+"projectinfo")
+    .toPromise()
     .then(res=>res)
     .catch(err=>console.log(err))
   }
+  getprojectdetailswithID(searchVal:number):Observable<any>{
+    return this.httpclient.get(environment.apiURL+"projectinfo/"+searchVal);
+  }
+  getprojectdetailswithIDP(searchVal:number):Promise<any>{
+    return this.httpclient.get(environment.apiURL+"projectinfo/"+searchVal)
+    .toPromise().then(res=>res);
+  }
+
 
 }

@@ -1,7 +1,7 @@
  
 <button class="addmemberbtn" mat-raised-button color="primary" (click)="openDialog()" >
      Add Member</button>
-     {{ formdata | json}}
+     <!-- {{ formdata | json  }} -->
 <!-- <mat-card class="example-card" *ngFor="let employee of employees;
  let i=index;">
     <mat-card-header>
@@ -16,5 +16,60 @@
     </mat-card-content>
   </mat-card> -->
 
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)"
+     placeholder="Filter">
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="projectname">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.projectname | lowercase}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="startdate">
+      <th mat-header-cell *matHeaderCellDef> Start Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.startdate |date :'dd-MM-yyyy'}} </td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="efforthours">
+      <th mat-header-cell *matHeaderCellDef> Effort Hours </th>
+      <td mat-cell *matCellDef="let element"> {{element.efforthours}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="primary" (click)="gotonext(element)" >Next </button>
+      </td>
+    </ng-container>
+  
+  
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>  
  
- 
+ <mat-form-field>
+   <input matInput [formControl]="searchval" placeholder="Enter Search ID">
+ </mat-form-field>
+ {{searchresult|json}}
+ <mat-form-field>
+  <input matInput (keyup)="onkey($event)" placeholder="Enter Search ID Promise">
+</mat-form-field>
+<mat-form-field>
+<input matInput placeholder="ng Model Example" [(ngModel)]="ngval"> 
+</mat-form-field>
+{{ngval}}
+
+

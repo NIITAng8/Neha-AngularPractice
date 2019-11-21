@@ -19,6 +19,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 import { CreateprojectComponent } from './createproject/createproject.component';
 import { AddmemberdialogComponent } from './addmemberdialog/addmemberdialog.component';
 import { ProjectformComponent } from './projectform/projectform.component';
@@ -30,7 +31,7 @@ import { ProjectformComponent } from './projectform/projectform.component';
     ProjectformComponent
   ],
   imports: [
-    BrowserModule,
+    
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
@@ -45,7 +46,9 @@ import { ProjectformComponent } from './projectform/projectform.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    MatTableModule
   ],
   entryComponents:[AddmemberdialogComponent],
   providers: [],
