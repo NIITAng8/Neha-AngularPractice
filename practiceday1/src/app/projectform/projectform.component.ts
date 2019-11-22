@@ -14,7 +14,7 @@ export class ProjectformComponent implements OnInit {
     , private pmservice: ProjectmanagementService,private route:Router,
   private router:ActivatedRoute) {
     let navigtion=this.route.getCurrentNavigation()
-    console.log(navigtion.extras.state.name)
+   // console.log(navigtion.extras.state.name)
     this.createform()
   }
   createform() {

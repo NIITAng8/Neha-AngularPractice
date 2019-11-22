@@ -23,12 +23,22 @@ import {MatTableModule} from '@angular/material/table';
 import { CreateprojectComponent } from './createproject/createproject.component';
 import { AddmemberdialogComponent } from './addmemberdialog/addmemberdialog.component';
 import { ProjectformComponent } from './projectform/projectform.component';
+import { TaskComponent } from './task/task.component';
+import { TaskdisplayComponent } from './taskdisplay/taskdisplay.component';
+import { TaskformComponent } from './taskform/taskform.component';
+import { CustomdirDirective } from './customdir.directive';
+import { CustompipePipe } from './custompipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     CreateprojectComponent,
     AddmemberdialogComponent,
-    ProjectformComponent
+    ProjectformComponent,
+    TaskComponent,
+    TaskdisplayComponent,
+    TaskformComponent,
+    CustomdirDirective,
+    CustompipePipe
   ],
   imports: [
     

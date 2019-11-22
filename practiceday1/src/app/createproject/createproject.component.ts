@@ -17,16 +17,15 @@ import { Router } from '@angular/router';
   //encapsulation:ViewEncapsulation.Native
 })
 export class CreateprojectComponent implements OnInit {
-  employees: employeemodel[];
   displayedColumns: string[] = ['id', 'projectname', 'startdate', 'efforthours','action'];
   formdata: formmodel;
   dataSource: MatTableDataSource<formmodel>;
   searchval: FormControl = new FormControl();
-  searchresult;
+  searchresult; 
   ngval:string="neha";
   constructor(public dialog: MatDialog, private pmservice: ProjectmanagementService,private router:Router) {
-    this.employees = [new employeemodel("Neha", "E31982", "Developer", true),
-    new employeemodel("Bharani", "E17582", "Manager", false)]
+    // this.employees = [new employeemodel("Neha", "E31982", "Developer", true),
+    // new employeemodel("Bharani", "E17582", "Manager", false)]
   }
 
   ngOnInit() {
@@ -34,8 +33,10 @@ export class CreateprojectComponent implements OnInit {
       this.formdata = result;
       this.dataSource = new MatTableDataSource(result);
     }
-
+  
     )
+
+   
     const observesearch = this.searchval.valueChanges.pipe(debounceTime(1000), distinctUntilChanged()).subscribe(val => {
       this.pmservice.getprojectdetailswithIDP(val).then(res => {
       this.searchresult = res;
@@ -73,9 +74,10 @@ export class CreateprojectComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         let dialogname = new employeemodel(result.name, result.eid,
-          result.role, false)
-        this.employees.unshift(dialogname);
-        console.log(result);
+          result.role )
+        this.pmservice.saveMemberList(dialogname).subscribe(res=>res);
+        //this.employees.unshift(dialogname);
+        //console.log(result);
       }
     })
   }

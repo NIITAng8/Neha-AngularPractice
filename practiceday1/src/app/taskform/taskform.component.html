@@ -1,0 +1,14 @@
+<mat-form-field>
+    <mat-label>Choose the employee name</mat-label>
+    <mat-select [(value)]="ename">
+        <mat-option *ngFor="let e of employees" [value]="e.name">
+            {{e.name}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <input matInput placeholder="Enter the task name" #task>
+</mat-form-field>
+<br>
+<button mat-raised-button (click)="savetask(task.value)">Create Task</button>

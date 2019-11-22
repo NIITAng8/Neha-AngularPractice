@@ -16,7 +16,7 @@ export class AddmemberdialogComponent implements OnInit {
     this.dialogRef.close();
   }
   addmember(name,eid){
-    this.dialogRef.close({neha:name,eid:eid,role:this.selectedoption});
+    this.dialogRef.close({name:name,eid:eid,role:this.selectedoption});
   }
   ngOnInit() {
   }

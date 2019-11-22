@@ -1,0 +1,15 @@
+<p>task works!</p>
+<mat-form-field>
+    <input matInput placeholder="Enter the number" [(ngModel)]="armnum">
+</mat-form-field>
+ {{armnum |custompipe:3 }}
+ <br>
+
+ <app-taskform (addtask)="updatetasklist($event)"></app-taskform>
+ 
+
+ TASK PARENT
+ {{tasklist | json}}
+
+
+ <app-taskdisplay *ngFor="let t of tasklist" [task]="t"></app-taskdisplay>
